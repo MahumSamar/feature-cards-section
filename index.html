@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --page-bg: #c1c1c1;
+    --media-bg: #fbe5cf;
+    --btn-bg: #2b2b2b;
+    --font-sans: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--page-bg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .features {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 6.2vw, 90px);
+    padding: clamp(40px, 8vw, 120px) clamp(16px, 4vw, 48px);
+  }
+
+  .card {
+    flex: 0 1 478px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 20px;
+  }
+  .card--dark  { background: #000; color: #fff; }
+  .card--light { background: #fff; color: #0a0a0a; }
+
+  .card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--media-bg);
+  }
+  .card__media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 17px 23px;
+  }
+
+  .card__title {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .card__text {
+    margin-top: 32px;
+    max-width: 47ch;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+  .card--dark  .card__text { color: #9b9b9b; }
+  .card--light .card__text { color: #b4b4b4; }
+
+  .card__btn {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--btn-bg);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s ease;
+  }
+  .card__spacer { flex: 1; min-height: 50px; }
+  .card__btn:hover { background: #3d3d3d; }
+  .card__btn:active { transform: scale(.97); }
+  .card__btn:focus-visible { outline: 2px solid #f08a3c; outline-offset: 3px; }
+
+  /* Tablet: keep two columns, tighten type so the copy still wraps cleanly */
+  @media (max-width: 1040px) {
+    .card__title { font-size: 28px; }
+    .card__text  { font-size: 13px; }
+    .card__body  { padding-top: 34px; }
+  }
+
+  /* Mobile: stack */
+  @media (max-width: 760px) {
+    .features {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .card { flex: 0 0 auto; width: 100%; max-width: 478px; }
+    .card__title { font-size: clamp(26px, 7.4vw, 32px); }
+    .card__text  { font-size: clamp(12px, 3.5vw, 15px); margin-top: 26px; }
+    .card__body  { padding: 32px 16px 22px; }
+    .card__spacer { min-height: 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card__btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="features" aria-label="Features">
+
+  <article class="card card--dark">
+    <div class="card__media">
+      <video autoplay muted loop playsinline preload="auto" aria-hidden="true"
+             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261010_122207_b0e90c1d-63e0-4f64-8173-7737c12f8b16.mp4"></video>
+    </div>
+    <div class="card__body">
+      <h2 class="card__title">AI Browser Content</h2>
+      <p class="card__text">AI tools can analyze user behavior, suggest relevant information, generate summaries, and even create articles or visuals directly in the browser.</p>
+      <div class="card__spacer"></div>
+      <a class="card__btn" href="#">Learn More</a>
+    </div>
+  </article>
+
+  <article class="card card--light">
+    <div class="card__media">
+      <video autoplay muted loop playsinline preload="auto" aria-hidden="true"
+             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261010_122239_2abf7dd8-85fd-43d2-b0a6-9d7e4e5141d0.mp4"></video>
+    </div>
+    <div class="card__body">
+      <h2 class="card__title">Optical Fibers</h2>
+      <p class="card__text">The initial installation cost of optical fiber networks can be high, they offer long-term financial benefits due to their durability, low maintenance needs, and high data capacity.</p>
+      <div class="card__spacer"></div>
+      <a class="card__btn" href="#">Learn More</a>
+    </div>
+  </article>
+
+</section>
+
+<script>
+  // Some mobile browsers block autoplay until the element is explicitly asked to play.
+  document.querySelectorAll('.card__media video').forEach(function (v) {
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+</script>
+</body>
+</html>
